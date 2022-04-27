@@ -62,7 +62,7 @@ public class Algorithm {
             if (isConflict(m, i)) {
                 continue;
             } else {
-                //如果检测到第i列不冲突，是安全的，
+                //如果检测到第i列不冲突，是安全的
                 results[m] = i;//将皇后m放在第i列
                 placeQueen(m + 1);//再放皇后m+1,
                 //如果皇后m+1放完并返回了
@@ -86,8 +86,7 @@ public class Algorithm {
         }
         //只需要保证与那些已经就位的皇后不冲突即可
         for (int i = 1; i < row; i++) {  //当前的行数
-            if (results[i] == column || (column - row) == (results[i] - i) ||
-                    (row - column) == (i - results[i])   //以前行数减列数与现在的是否相等
+            if (results[i] == column || (column - row) == (results[i] - i) || (row - column) == (i - results[i])   //以前行数减列数与现在的是否相等
                     || (row + column) == (results[i] + i)) {
                 return true;
             }

@@ -32,25 +32,29 @@ public class Algorithm {
     private int[] results;
     //the number of results
     private int sum = 0;
+    private final boolean needFullResult;
 
-    public Algorithm(int qN) {
+    public Algorithm(int qN, boolean needFullResult) {
         this.queenNum = qN;
+        this.needFullResult = needFullResult;
         this.results = new int[qN + 1];
         for (int i = 0; i < results.length; results[i++] = -1) ; //initial
         placeQueen(1);
     }
 
-    public void placeQueen(int m) {
+    private void placeQueen(int m) {
         if (m > queenNum) {
             //如果摆到了n+1行了，说明前n行都是不冲突的
             sum++;
-            System.out.print(sum + " : ");
-            for (int i = 1; i <= queenNum; i++) {
-                //每个数字的含义为每一行的第几列
-                //如：2413 -> 第一行第二列、第二行第四列、第三行第一列、第四行第三列
-                System.out.print(results[i]);
+            if (needFullResult){
+                System.out.print(sum + " : ");
+                for (int i = 1; i <= queenNum; i++) {
+                    //每个数字的含义为每一行的第几列
+                    //如：2413 -> 第一行第二列、第二行第四列、第三行第一列、第四行第三列
+                    System.out.print(results[i]);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
 
         for (int i = 1; i <= queenNum; i++) {

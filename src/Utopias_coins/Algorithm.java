@@ -23,7 +23,7 @@ public class Algorithm {
     }
 
     private int findChange(int amount) {
-        int tempMinChange = 0;
+        int tempMinChange;
         int minChange = 0;
 
         //cannot use coins to express a negative number or 0, so return 0
